@@ -6,16 +6,16 @@ class Chatbook:
         self.Menu()
 
     def Menu(self):
-        user_input = input("""Welcome to Chatbook! Please choose an option:\n1. SignUp\n2. SignIn\n3. Post\n4.Message a friend \n5. Exit\n""")
+        user_input = input("""Welcome to Chatbook! Please choose an option:\n1. SignUp\n2. SignIn\n3. Post\n4. Message a friend \n5. Exit\n""")
 
         if user_input == "1":
             self.SignUp()
         elif user_input == "2":
             self.SignIn()
         elif user_input == "3":
-            pass
+            self.Post()
         elif user_input == "4":
-            pass
+            self.Message()
         elif user_input == "5":
             print("Thank you for using Chatbook!")
             exit()
@@ -47,4 +47,22 @@ class Chatbook:
                 print("Invalid credentials. Please try again.")
                 self.SignIn()
 
+    def Post(self):
+        if self.LoggedIn:
+            post_content = input("Please enter your post content: ")
+            print(f"Post created: {post_content}")
+            self.Menu()
+        else:
+            print("You need to be logged in to create a post.")
+            self.Menu()
+    
+    def Message(self):
+        if self.LoggedIn:
+            message_content = input("Please enter your message: ")
+            print(f"Message sent: {message_content}")
+            self.Menu()
+        else:
+            print("You need to be logged in to send a message.")
+            self.Menu()
+    
 Kunal = Chatbook()
