@@ -1,10 +1,15 @@
 class Chatbook:
     def __init__(self):
+        self.__name = "Chatbook"
         self.username =""
         self.password = ""
         self.LoggedIn = False
         self.Menu()
 
+    def get_name(self):
+        return self.__name
+    def set_name(self, name):
+        self.__name = name
     def Menu(self):
         user_input = input("""Welcome to Chatbook! Please choose an option:\n1. SignUp\n2. SignIn\n3. Post\n4. Message a friend \n5. Exit\n""")
 
